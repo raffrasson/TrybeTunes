@@ -1,7 +1,8 @@
 import React from 'react';
 import { Redirect } from 'react-router';
 import { createUser } from '../services/userAPI';
-import Loading from './Loading';
+import Loading from '../components/Loading';
+import Header from '../components/Header';
 
 class Login extends React.Component {
   constructor(props) {
@@ -10,16 +11,11 @@ class Login extends React.Component {
       user: '',
       loading: false,
       redirect: false,
-      // apiState: undefined,
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.buttonClick = this.buttonClick.bind(this);
   }
-
-  // componentDidMount() {
-  //   this.fetchApi();
-  // }
 
   handleChange({ target }) {
     const { name } = target;
@@ -31,8 +27,12 @@ class Login extends React.Component {
 
   async buttonClick() {
     const { user } = this.state;
-    this.setState({ loading: true });
-    await createUser({ name: user });
+    this.setState({
+      loading: true,
+    });
+    await createUser({
+      name: user,
+    });
     await this.setState({
       loading: false,
     });
@@ -58,6 +58,7 @@ class Login extends React.Component {
     }
     return (
       <div data-testid="page-login">
+        <Header />
         <form>
           <label htmlFor="user">
             <input
