@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-class Profile extends React.Component{
+class Profile extends React.Component {
   render() {
-    return(
+    return (
       <div data-testid="page-profile">Profile</div>
-    )
+    );
   }
 }
 
-export default Profile
+export default Profile;
