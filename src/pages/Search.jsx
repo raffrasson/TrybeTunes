@@ -24,6 +24,7 @@ class Search extends React.Component {
   }
 
  showAlbumResults = () => {
+   //  estava tentando usar igualdade no primeiro if. Com a ajuda do Lucas Farias consegui resolver com length: https://github.com/tryber/sd-014-a-project-trybetunes/pull/83/files
    const { inputData, results } = this.state;
    if (results !== '' && results.length > 0) {
      return (
